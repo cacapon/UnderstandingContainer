@@ -1,0 +1,21 @@
+version: '3'
+services:
+  public_container:
+    build: ./public_container
+    volumes:
+      - ./public_container:/var/pubric_container
+    environment:
+      ENV : "DEV"
+      PRIVATE_ADDRESS: private_container
+      PRIVATE_PORT: 4000
+    ports:
+      - "5000:5000"
+
+  private_container:
+    build: ./private_container
+    volumes:
+      - ./private_container:/var/private_container
+    environment:
+      ENV : "DEV"
+    ports:
+      - "4000:4000"

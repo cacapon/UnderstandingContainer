@@ -1,0 +1,14 @@
+# このリポジトリについて
+
+Docker嬢で起動しているあるコンテナから別のコンテナのデータを取得する方法を実現するため、 +
+Flaskを用いて作成したものになります。 +
+
+* public_container は公開しているコンテナとします。curl等でアクセス可能です。
+* private_container は非公開のコンテナで、public_containerからでしかアクセスできません。※
+* public_container にGETリクエストを送るとprivate_container に送信し、データを取得します。
+
+※　厳密に言うとアクセスは出来ますが、public_container以外からのアクセスだと、403 エラーを返します。
+
+確認する場合は、 `docker-compopse up` でコンテナを起動後、 +
+curl 等で5000ポートにGETリクエストを送信してください。 +
+また、4000番ポートにcurlを送信すると、403エラーが返ることも確認してみてください。
