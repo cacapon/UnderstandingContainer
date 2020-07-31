@@ -1,0 +1,10 @@
+version: '3'
+services:
+  public_container:
+    build: .
+    volumes:
+      - .:/var/pubric_container
+    environment:
+      ENV : "DEV"
+    ports:
+      - "5000:5000"
